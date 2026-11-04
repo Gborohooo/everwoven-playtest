@@ -740,9 +740,9 @@
     </div>
 
     <div class="notice">
-      This hub is being established. No playtest package has been
-      published here yet. Build availability and testing instructions
-      will appear below when a release is ready.
+      The first Windows playtest is available. Download the package below,
+      extract it completely, and use a new disposable world for testing.
+      Private GitHub access is required separately from this website login.
     </div>
 
     <section id="playtest" aria-labelledby="playtest-title">
@@ -757,24 +757,44 @@
 
       <div class="grid">
         <article class="card">
-          <span class="badge">Awaiting first publication</span>
-          <h3>No recommended build yet</h3>
+          <span class="badge">First Windows playtest &middot; 2026-11-04</span>
+          <h3>Windows x86-64 playtest</h3>
           <p>
-            The first release will include a Windows download,
-            version identifier, release notes, known issues,
-            and save-compatibility guidance.
+            Owner-tested package. Extract the entire ZIP, then run
+            <code>Everwoven.exe</code> from the extracted folder.
+            The development editor is not required.
           </p>
-          <a href="https://github.com/Gborohooo/everwoven-playtest/releases">
-            Open private release archive
+          <p class="small">
+            Build:
+            <code>Everwoven-Windows-Playtest-20261104_134344_636-fdc5ff23b728-local</code>
+          </p>
+          <p>
+            <a class="button primary"
+               href="https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261104-134344-fdc5ff23b728/Everwoven-Windows-Playtest-20261104_134344_636-fdc5ff23b728-local.zip">
+              Download Windows ZIP
+            </a>
+          </p>
+          <p class="small">
+            GitHub sign-in and private repository access are required.
+            Website login alone does not grant download access.
+          </p>
+          <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261104-134344-fdc5ff23b728">
+            Release notes, package hash &amp; compatibility guidance
           </a>
         </article>
 
         <article class="card">
           <h3>This week's testing focus</h3>
-          <p>No testing assignment has been published yet.</p>
-          <p>
-            Each release will identify what changed, what needs
-            attention, and how to report useful results.
+          <ol>
+            <li>Create a new disposable world.</li>
+            <li>Check startup, menus, terrain rendering, and movement.</li>
+            <li>Change a HUD preference and quit normally.</li>
+            <li>Restart, confirm the preference survived, and reload the world.</li>
+          </ol>
+          <p class="small">
+            These checks passed on the owner's machine.
+            Testing on another computer is still needed.
+            Do not delete, move, or migrate existing saves for this test.
           </p>
           <p class="small">
             Always include the build version with a report.
@@ -794,11 +814,40 @@
         </p>
       </div>
 
-      <div class="empty">
-        No releases recorded in this hub yet.
-        The first entry will separate additions, changes, fixes,
-        known issues, and compatibility notes.
-      </div>
+      <article class="card">
+        <span class="badge">2026-11-04 &middot; Private prerelease</span>
+        <h3>First Windows playtest</h3>
+        <p>
+          First published package, not a complete historical game changelog.
+          Packaging and uploaded-download hashes were verified.
+          Owner accepted terrain rendering, movement, test-world reload,
+          and HUD-preference persistence across restart.
+        </p>
+        <ul>
+          <li>
+            Known warnings on the tested machine: Vulkan loader registry
+            layer-manifest lookup and RGB8-to-RGBA8 texture conversion.
+            The requested owner playtests passed.
+          </li>
+          <li>
+            Current portable-playtest documentation lists persistent distant
+            foliage history as unfinished.
+          </li>
+          <li>
+            Release saves use <code>%APPDATA%\Everwoven</code>;
+            development-editor data remains separate.
+            Use a new disposable world. Arbitrary older/newer-world
+            compatibility and second-computer compatibility are not established.
+          </li>
+        </ul>
+        <p class="small">
+          ZIP SHA256:
+          <code>2DC30D2C41F339A65BA0A2A3BFD6DBC6637CC0AD7A1E33EABB45562A86544D90</code>
+        </p>
+        <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261104-134344-fdc5ff23b728">
+          Open this release
+        </a>
+      </article>
     </section>
 
     <section id="development" aria-labelledby="development-title">

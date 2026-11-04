@@ -1,4 +1,14 @@
-  <style>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="dark">
+  <meta name="description"
+        content="Everwoven private development and playtesting hub.">
+  <title>Everwoven | Playtest Hub</title>
+    <style>
     :root {
       --bg: #172b36;
       --panel: #302c27;
@@ -469,3 +479,196 @@
       }
     }
   </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#main">EVERWOVEN</a>
+      <nav aria-label="Main navigation">
+        <a href="#playtest">Playtest</a>
+        <a href="#versions">Versions</a>
+        <a href="#development">Development</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Private development &amp; playtesting</p>
+      <h1>A world in the making.</h1>
+      <p class="intro">
+        The Everwoven team's home for playable builds, development
+        updates, focused testing, and ideas that help shape the game.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="#playtest">Current playtest</a>
+        <a class="button" href="#feedback">Share feedback</a>
+      </div>
+    </div>
+
+    <div class="notice">
+      This hub is being established. No playtest package has been
+      published here yet. Build availability and testing instructions
+      will appear below when a release is ready.
+    </div>
+
+    <section id="playtest" aria-labelledby="playtest-title">
+      <div class="section-heading">
+        <p class="eyebrow">Download &amp; test</p>
+        <h2 id="playtest-title">Current playtest</h2>
+        <p>
+          Use the recommended release for shared testing.
+          Development work is not automatically a published build.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="badge">Awaiting first publication</span>
+          <h3>No recommended build yet</h3>
+          <p>
+            The first release will include a Windows download,
+            version identifier, release notes, known issues,
+            and save-compatibility guidance.
+          </p>
+          <a href="https://github.com/Gborohooo/everwoven-playtest/releases">
+            Open private release archive
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>This week's testing focus</h3>
+          <p>No testing assignment has been published yet.</p>
+          <p>
+            Each release will identify what changed, what needs
+            attention, and how to report useful results.
+          </p>
+          <p class="small">
+            Always include the build version with a report.
+            Do not assume an older build can safely open a newer save.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="versions" aria-labelledby="versions-title">
+      <div class="section-heading">
+        <p class="eyebrow">Changes &amp; fixes</p>
+        <h2 id="versions-title">Version history</h2>
+        <p>
+          Published releases will retain their own notes and package
+          identity so feedback can be traced to the build tested.
+        </p>
+      </div>
+
+      <div class="empty">
+        No releases recorded in this hub yet.
+        The first entry will separate additions, changes, fixes,
+        known issues, and compatibility notes.
+      </div>
+    </section>
+
+    <section id="development" aria-labelledby="development-title">
+      <div class="section-heading">
+        <p class="eyebrow">Progress &amp; direction</p>
+        <h2 id="development-title">Development board</h2>
+        <p>
+          These are workflow categories, not a claim about the game's
+          current implementation. Approved items will be added
+          separately from suggestions.
+        </p>
+      </div>
+
+      <div class="board">
+        <article class="column">
+          <h3>Planned</h3>
+          <p>No approved items published to this board yet.</p>
+        </article>
+        <article class="column">
+          <h3>In development</h3>
+          <p>No active work published to this board yet.</p>
+        </article>
+        <article class="column">
+          <h3>Ready for testing</h3>
+          <p>No testing candidates published to this board yet.</p>
+        </article>
+        <article class="column">
+          <h3>Accepted</h3>
+          <p>No accepted items published to this board yet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="feedback" aria-labelledby="feedback-title">
+      <div class="section-heading">
+        <p class="eyebrow">Collaborate</p>
+        <h2 id="feedback-title">Help shape Everwoven</h2>
+        <p>
+          Keep bugs, design ideas, and testing results in the private
+          feedback backlog rather than losing them in chat.
+          GitHub access is required separately from this website login.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Report a bug</h3>
+          <p>Start the issue title with <code>[Bug]</code> and include:</p>
+          <ul>
+            <li>The build version you tested.</li>
+            <li>What happened and what you expected.</li>
+            <li>Steps to reproduce it, if known.</li>
+            <li>A screenshot, video, or relevant log excerpt.</li>
+          </ul>
+          <p class="small">
+            Remove personal information from logs.
+            Do not post passwords, access codes, or tokens.
+          </p>
+          <a class="button"
+             href="https://github.com/Gborohooo/everwoven-playtest/issues/new">
+            Write a bug report
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Suggest a feature</h3>
+          <p>Start the issue title with <code>[Idea]</code> and explain:</p>
+          <ul>
+            <li>The experience or problem you want to improve.</li>
+            <li>Your proposed behavior.</li>
+            <li>Why it would make the game better.</li>
+            <li>Any tradeoffs or alternatives worth considering.</li>
+          </ul>
+          <p class="small">
+            Suggestions are discussion items, not commitments.
+            Approved scope and priorities are decided separately.
+          </p>
+          <a class="button"
+             href="https://github.com/Gborohooo/everwoven-playtest/issues/new">
+            Propose an idea
+          </a>
+        </article>
+      </div>
+
+      <div class="actions">
+        <a href="https://github.com/Gborohooo/everwoven-playtest/issues">
+          Browse the private feedback backlog
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Everwoven · Private playtest hub</p>
+      <p>
+        Pre-release development. Availability, features, and plans
+        may change. No release date is announced here.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -461,6 +461,236 @@
       .button { max-width: 100%; }
     }
 
+        /* Everwoven theme: blackened brass and earth. */
+    :root {
+      --bg: #100f0d;
+      --panel: #1c1a16;
+      --panel-light: #29241b;
+      --text: #f0e5cc;
+      --muted: #d0c3a9;
+      --green: #dbb969;
+      --gold: #edca7a;
+      --line: #826235;
+      --ink: #090908;
+      --wood: #72512c;
+      --wood-light: #bc9452;
+      --wood-dark: #3b2c1b;
+    }
+
+    body::before {
+      background: linear-gradient(
+        to bottom,
+        #090a09 0%,
+        #191a15 40%,
+        #303022 72%,
+        #151510 100%
+      );
+    }
+
+    body::after {
+      background: #303326;
+      opacity: .5;
+    }
+
+    header {
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 14px,
+          #b28b4209 14px 16px
+        ),
+        #13120f;
+      border-top: 4px solid #94703c;
+      border-bottom: 5px solid #080807;
+      box-shadow: 0 3px 0 #b28b49, 0 7px 0 #0a0a08;
+    }
+
+    .brand {
+      color: #eed18a;
+      text-shadow: 2px 2px 0 #66502c, 4px 4px 0 #080908;
+    }
+
+    nav a {
+      color: #d8c49a;
+      text-shadow: 2px 2px 0 #050605;
+    }
+
+    nav a:hover { color: #ffe4a0; }
+
+    .hero {
+      border: 4px solid #49371f;
+      background:
+        linear-gradient(135deg, #c4943210, transparent 55%),
+        linear-gradient(to bottom, #191b17, #0f1210);
+      box-shadow:
+        inset 0 0 0 3px #b28b49,
+        inset 0 0 0 6px #302718,
+        inset 0 0 0 8px #67502c,
+        5px 5px 0 #070807;
+    }
+
+    .hero::before {
+      background: #343926;
+    }
+
+    .hero::after {
+      height: 18px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0 28px,
+          #171b12 28px 32px
+        ),
+        linear-gradient(
+          to bottom,
+          #9c9b59 0 3px,
+          #666b3b 3px 8px,
+          #3e482a 8px 12px,
+          #3c3020 12px 15px,
+          #211c14 15px
+        );
+    }
+
+    h1 {
+      color: #f3e1af;
+      text-shadow: 3px 3px 0 #69512a, 5px 5px 0 #080b09;
+    }
+
+    h2 {
+      color: #e4c57d;
+      text-shadow: 2px 2px 0 #080a08;
+    }
+
+    h3 {
+      color: #ebcf94;
+      text-shadow: 2px 2px 0 #090a08;
+    }
+
+    .intro {
+      color: #e2d8c1;
+      text-shadow: 1px 2px 0 #090c09;
+    }
+
+    .eyebrow {
+      color: #d8b368;
+      text-shadow: 2px 2px 0 #090b08;
+    }
+
+    .notice,
+    .card,
+    .column,
+    .empty {
+      position: relative;
+      border: 4px solid #49371f;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 31px,
+          #d7b46a04 31px 32px
+        ),
+        #1c1a16;
+      box-shadow:
+        inset 2px 2px 0 #b38b4b,
+        inset -2px -2px 0 #100f0c,
+        3px 3px 0 #080907;
+    }
+
+    /* Four square brass rivets on each framed panel. */
+    .notice::before,
+    .card::before,
+    .column::before,
+    .empty::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      pointer-events: none;
+      background:
+        linear-gradient(#e0ba70, #85602d)
+          left top / 5px 5px no-repeat,
+        linear-gradient(#e0ba70, #85602d)
+          right top / 5px 5px no-repeat,
+        linear-gradient(#a17b3e, #59401f)
+          left bottom / 5px 5px no-repeat,
+        linear-gradient(#a17b3e, #59401f)
+          right bottom / 5px 5px no-repeat;
+    }
+
+    .notice {
+      color: #e4d4b0;
+      background-color: #252016;
+    }
+
+    .section-heading {
+      border-left: 6px solid #b48c47;
+      background:
+        linear-gradient(90deg, #a47b2610, transparent 65%),
+        #141610;
+      box-shadow: 3px 3px 0 #080a07;
+    }
+
+    .section-heading p:not(.eyebrow) {
+      color: #d5cbb6;
+    }
+
+    .column {
+      border-top: 6px solid #8c713e;
+    }
+
+    .badge {
+      border: 2px solid #95703a;
+      background: #14130f;
+      color: #e6c57f;
+      box-shadow: 2px 2px 0 #080906;
+    }
+
+    .button {
+      border: 3px solid #100f0b;
+      background: #30271b;
+      color: #eed9a6;
+      box-shadow:
+        inset 3px 3px 0 #b08a47,
+        inset -3px -3px 0 #594020,
+        3px 3px 0 #070806;
+      text-shadow: 1px 2px 0 #100f0b;
+    }
+
+    .button:hover {
+      background: #463722;
+      color: #fff0be;
+    }
+
+    .button.primary {
+      background: #a17c3a;
+      color: #100e09;
+      text-shadow: none;
+      box-shadow:
+        inset 3px 3px 0 #e4c47d,
+        inset -3px -3px 0 #65471e,
+        3px 3px 0 #070806;
+    }
+
+    .button.primary:hover {
+      background: #bd964f;
+      color: #080805;
+    }
+
+    .button:active,
+    .button.primary:active {
+      transform: translate(2px, 2px);
+      box-shadow: inset 2px 2px 0 #49351c;
+    }
+
+    code {
+      background: #11120e;
+      color: #e3c98d;
+    }
+
+    footer {
+      border-top: 5px solid #71542b;
+      background: #10110d;
+      box-shadow: 0 -3px 0 #b28b49, 0 -7px 0 #080a07;
+    }
+      
     @media print {
       body { background: white; color: black; }
       body::before, body::after,

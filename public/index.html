@@ -4,28 +4,469 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>Private playtest hub</title>
+  <meta name="color-scheme" content="dark">
+  <meta name="description"
+        content="Everwoven private development and playtesting hub.">
+  <title>Everwoven | Playtest Hub</title>
   <style>
+    :root {
+      --bg: #0d1418;
+      --panel: #152127;
+      --panel-light: #1b2b31;
+      --text: #e6efeb;
+      --muted: #afc0bb;
+      --green: #b5dfb9;
+      --gold: #e9ca8d;
+      --line: #354a48;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-padding-top: 24px;
+    }
+
     body {
       margin: 0;
-      background: #111820;
-      color: #e8edf2;
-      font: 18px/1.6 system-ui, sans-serif;
+      background:
+        radial-gradient(ellipse at top left, #234137 0, transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
     }
-    main {
+
+    a {
+      color: var(--green);
+      text-underline-offset: 4px;
+    }
+
+    a:hover { color: #fff; }
+
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 5px;
+    }
+
+    .skip {
+      position: absolute;
+      left: 16px;
+      top: -100px;
+      padding: 10px 16px;
+      background: var(--panel);
+      z-index: 10;
+    }
+
+    .skip:focus { top: 12px; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: #0d1418;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-block: 20px;
+    }
+
+    .brand {
+      color: var(--text);
+      font-size: 1.3rem;
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-size: .95rem;
+      text-decoration: none;
+    }
+
+    .hero { padding-block: 66px 42px; }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { line-height: 1.2; }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      letter-spacing: -.025em;
+    }
+
+    h3 {
+      margin: 0 0 14px;
+      font-size: 1.15rem;
+    }
+
+    p { margin: 0 0 16px; }
+
+    .intro {
       max-width: 720px;
-      margin: 12vh auto;
-      padding: 32px;
+      color: var(--muted);
+      font-size: 1.15rem;
     }
-    h1 { color: #a9d6bb; }
-    p { color: #b9c5cf; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 11px 18px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: var(--panel-light);
+      color: var(--text);
+      font-size: .95rem;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .button:hover {
+      background: #294239;
+      color: #fff;
+    }
+
+    .button.primary {
+      border-color: var(--green);
+      background: var(--green);
+      color: #102018;
+    }
+
+    .button.primary:hover { background: #d1f3d4; }
+
+    .notice {
+      padding: 16px 20px;
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--gold);
+      border-radius: 9px;
+      background: #17231f;
+      color: var(--muted);
+    }
+
+    section { padding-block: 32px; }
+
+    .section-heading { margin-bottom: 22px; }
+
+    .section-heading p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 780px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .card p, .card li { color: var(--muted); }
+
+    .card > :last-child { margin-bottom: 0; }
+
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 4px 10px;
+      border: 1px solid #6d5e3e;
+      border-radius: 999px;
+      color: var(--gold);
+      font-size: .78rem;
+    }
+
+    .empty {
+      padding: 24px;
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    ul, ol {
+      margin: 0 0 16px;
+      padding-left: 22px;
+    }
+
+    li + li { margin-top: 8px; }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .column {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+    }
+
+    .column h3 { font-size: 1rem; }
+
+    .column p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: .87rem;
+    }
+
+    footer {
+      margin-top: 34px;
+      padding-block: 28px 40px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    footer p { margin: 0 0 8px; }
+
+    @media (max-width: 800px) {
+      .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .wrap { width: calc(100% - 28px); }
+      .hero { padding-top: 42px; }
+      .grid, .board { grid-template-columns: 1fr; }
+      .card { padding: 22px; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Playtest hub</h1>
-    <p>Setup in progress.</p>
-    <p>No game downloads or private development information are published here yet.</p>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#main">EVERWOVEN</a>
+      <nav aria-label="Main navigation">
+        <a href="#playtest">Playtest</a>
+        <a href="#versions">Versions</a>
+        <a href="#development">Development</a>
+        <a href="#feedback">Feedback</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="hero">
+      <p class="eyebrow">Private development &amp; playtesting</p>
+      <h1>A world in the making.</h1>
+      <p class="intro">
+        The Everwoven team's home for playable builds, development
+        updates, focused testing, and ideas that help shape the game.
+      </p>
+      <div class="actions">
+        <a class="button primary" href="#playtest">Current playtest</a>
+        <a class="button" href="#feedback">Share feedback</a>
+      </div>
+    </div>
+
+    <div class="notice">
+      This hub is being established. No playtest package has been
+      published here yet. Build availability and testing instructions
+      will appear below when a release is ready.
+    </div>
+
+    <section id="playtest" aria-labelledby="playtest-title">
+      <div class="section-heading">
+        <p class="eyebrow">Download &amp; test</p>
+        <h2 id="playtest-title">Current playtest</h2>
+        <p>
+          Use the recommended release for shared testing.
+          Development work is not automatically a published build.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="badge">Awaiting first publication</span>
+          <h3>No recommended build yet</h3>
+          <p>
+            The first release will include a Windows download,
+            version identifier, release notes, known issues,
+            and save-compatibility guidance.
+          </p>
+          <a href="https://github.com/Gborohooo/everwoven-playtest/releases">
+            Open private release archive
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>This week's testing focus</h3>
+          <p>No testing assignment has been published yet.</p>
+          <p>
+            Each release will identify what changed, what needs
+            attention, and how to report useful results.
+          </p>
+          <p class="small">
+            Always include the build version with a report.
+            Do not assume an older build can safely open a newer save.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="versions" aria-labelledby="versions-title">
+      <div class="section-heading">
+        <p class="eyebrow">Changes &amp; fixes</p>
+        <h2 id="versions-title">Version history</h2>
+        <p>
+          Published releases will retain their own notes and package
+          identity so feedback can be traced to the build tested.
+        </p>
+      </div>
+
+      <div class="empty">
+        No releases recorded in this hub yet.
+        The first entry will separate additions, changes, fixes,
+        known issues, and compatibility notes.
+      </div>
+    </section>
+
+    <section id="development" aria-labelledby="development-title">
+      <div class="section-heading">
+        <p class="eyebrow">Progress &amp; direction</p>
+        <h2 id="development-title">Development board</h2>
+        <p>
+          These are workflow categories, not a claim about the game's
+          current implementation. Approved items will be added
+          separately from suggestions.
+        </p>
+      </div>
+
+      <div class="board">
+        <article class="column">
+          <h3>Planned</h3>
+          <p>No approved items published to this board yet.</p>
+        </article>
+        <article class="column">
+          <h3>In development</h3>
+          <p>No active work published to this board yet.</p>
+        </article>
+        <article class="column">
+          <h3>Ready for testing</h3>
+          <p>No testing candidates published to this board yet.</p>
+        </article>
+        <article class="column">
+          <h3>Accepted</h3>
+          <p>No accepted items published to this board yet.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="feedback" aria-labelledby="feedback-title">
+      <div class="section-heading">
+        <p class="eyebrow">Collaborate</p>
+        <h2 id="feedback-title">Help shape Everwoven</h2>
+        <p>
+          Keep bugs, design ideas, and testing results in the private
+          feedback backlog rather than losing them in chat.
+          GitHub access is required separately from this website login.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Report a bug</h3>
+          <p>Start the issue title with <code>[Bug]</code> and include:</p>
+          <ul>
+            <li>The build version you tested.</li>
+            <li>What happened and what you expected.</li>
+            <li>Steps to reproduce it, if known.</li>
+            <li>A screenshot, video, or relevant log excerpt.</li>
+          </ul>
+          <p class="small">
+            Remove personal information from logs.
+            Do not post passwords, access codes, or tokens.
+          </p>
+          <a class="button"
+             href="https://github.com/Gborohooo/everwoven-playtest/issues/new">
+            Write a bug report
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>Suggest a feature</h3>
+          <p>Start the issue title with <code>[Idea]</code> and explain:</p>
+          <ul>
+            <li>The experience or problem you want to improve.</li>
+            <li>Your proposed behavior.</li>
+            <li>Why it would make the game better.</li>
+            <li>Any tradeoffs or alternatives worth considering.</li>
+          </ul>
+          <p class="small">
+            Suggestions are discussion items, not commitments.
+            Approved scope and priorities are decided separately.
+          </p>
+          <a class="button"
+             href="https://github.com/Gborohooo/everwoven-playtest/issues/new">
+            Propose an idea
+          </a>
+        </article>
+      </div>
+
+      <div class="actions">
+        <a href="https://github.com/Gborohooo/everwoven-playtest/issues">
+          Browse the private feedback backlog
+        </a>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Everwoven · Private playtest hub</p>
+      <p>
+        Pre-release development. Availability, features, and plans
+        may change. No release date is announced here.
+      </p>
+    </div>
+  </footer>
 </body>
 </html>

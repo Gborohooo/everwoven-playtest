@@ -1,0 +1,57 @@
+name: Bug report
+description: Report something that did not work as expected.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Include the build version so we can investigate the right game revision.
+        Do not attach saves unless requested. Remove personal information from logs.
+        Never include passwords, access codes, or tokens.
+  - type: input
+    id: build
+    attributes:
+      label: Build version
+      description: Copy the version from the download page or build information.
+      placeholder: "Version or build identifier; unknown if unavailable"
+  - type: textarea
+    id: actual
+    attributes:
+      label: What happened?
+      placeholder: Describe what went wrong.
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: Describe the behavior you expected instead.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Say if this happened only once or you cannot reproduce it.
+      placeholder: |
+        1. Start the game...
+        2. ...
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Not sure
+        - Once so far
+        - Sometimes
+        - Every time
+  - type: dropdown
+    id: world
+    attributes:
+      label: World context
+      options:
+        - Not applicable or unknown
+        - Newly created test world
+        - Existing world
+        - Both new and existing worlds
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots, logs, and computer details
+      description: Add relevant evidence and hardware details if useful. Remove private information.

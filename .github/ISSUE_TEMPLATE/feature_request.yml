@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest an improvement or discuss a new game idea.
+title: "[Idea] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are discussion items, not implementation commitments.
+        Describe the player experience you want to improve.
+  - type: input
+    id: build
+    attributes:
+      label: Build version, if relevant
+      placeholder: "Build identifier, or not applicable"
+  - type: textarea
+    id: problem
+    attributes:
+      label: What experience or problem should improve?
+      placeholder: Explain the player need, not just the proposed feature.
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      placeholder: What would the player be able to do, and how would it work?
+  - type: textarea
+    id: benefit
+    attributes:
+      label: Why would this improve Everwoven?
+      placeholder: Describe the benefit to exploration, gameplay, usability, or another experience.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and tradeoffs
+      placeholder: Mention simpler options, drawbacks, or interactions with other mechanics.
+  - type: textarea
+    id: references
+    attributes:
+      label: Optional examples or sketches
+      description: References explain your idea; they are not permission to copy another game's assets.

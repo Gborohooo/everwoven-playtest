@@ -1,47 +1,79 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <meta name="color-scheme" content="dark">
-  <meta name="description"
-        content="Everwoven private development and playtesting hub.">
-  <title>Everwoven | Playtest Hub</title>
   <style>
     :root {
-      --bg: #0d1418;
-      --panel: #152127;
-      --panel-light: #1b2b31;
-      --text: #e6efeb;
-      --muted: #afc0bb;
-      --green: #b5dfb9;
-      --gold: #e9ca8d;
-      --line: #354a48;
-      --radius: 16px;
+      --bg: #172b36;
+      --panel: #302c27;
+      --panel-light: #42382c;
+      --text: #fff0cf;
+      --muted: #ded1b5;
+      --green: #b6dc82;
+      --gold: #ffda83;
+      --line: #806344;
+      --ink: #171b20;
+      --wood: #725037;
+      --wood-light: #ad8152;
+      --wood-dark: #402d25;
     }
 
     * { box-sizing: border-box; }
 
-    html {
-      scroll-padding-top: 24px;
-    }
+    html { scroll-padding-top: 24px; }
 
     body {
       margin: 0;
-      background:
-        radial-gradient(ellipse at top left, #234137 0, transparent 55%),
-        var(--bg);
+      min-height: 100vh;
+      isolation: isolate;
+      background: var(--bg);
       color: var(--text);
-      font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+      font: 17px/1.75 Georgia, "Times New Roman", serif;
+      overflow-wrap: break-word;
+    }
+
+    /* Original, CSS-drawn stepped landscape. */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          to bottom,
+          #162b3d 0%,
+          #284757 37%,
+          #56706a 66%,
+          #283e32 100%
+        );
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .7;
+      background: #294653;
+      clip-path: polygon(
+        0 48%, 5% 48%, 5% 41%, 10% 41%,
+        10% 35%, 16% 35%, 16% 43%, 21% 43%,
+        21% 52%, 27% 52%, 27% 44%, 33% 44%,
+        33% 33%, 38% 33%, 38% 26%, 44% 26%,
+        44% 35%, 49% 35%, 49% 46%, 55% 46%,
+        55% 55%, 61% 55%, 61% 43%, 67% 43%,
+        67% 35%, 73% 35%, 73% 42%, 79% 42%,
+        79% 51%, 85% 51%, 85% 39%, 91% 39%,
+        91% 32%, 96% 32%, 96% 43%, 100% 43%,
+        100% 100%, 0 100%
+      );
     }
 
     a {
       color: var(--green);
       text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
     }
 
-    a:hover { color: #fff; }
+    a:hover { color: #fff3ad; }
 
     a:focus-visible {
       outline: 3px solid var(--gold);
@@ -50,157 +82,285 @@
 
     .skip {
       position: absolute;
-      left: 16px;
-      top: -100px;
+      left: 18px;
+      top: -150px;
       padding: 10px 16px;
-      background: var(--panel);
-      z-index: 10;
+      border: 3px solid var(--gold);
+      background: var(--ink);
+      z-index: 20;
     }
 
     .skip:focus { top: 12px; }
 
     .wrap {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1120px, calc(100% - 48px));
       margin-inline: auto;
     }
 
     header {
-      border-bottom: 1px solid var(--line);
-      background: #0d1418;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 14px,
+          #211d1a 14px 16px
+        ),
+        #352a23;
+      border-top: 4px solid #ad8152;
+      border-bottom: 5px solid #191a19;
+      box-shadow: 0 4px 0 #86613f, 0 8px 0 #1a2021;
     }
 
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 20px;
       padding-block: 20px;
     }
 
+    .brand,
+    h1,
+    h2,
+    h3,
+    .eyebrow,
+    .button,
+    .badge,
+    nav {
+      font-family: "Lucida Console", Monaco, monospace;
+    }
+
     .brand {
-      color: var(--text);
-      font-size: 1.3rem;
-      font-weight: 750;
-      letter-spacing: .08em;
+      color: #d7edac;
+      font-size: clamp(1.3rem, 4vw, 1.65rem);
+      font-weight: 900;
+      letter-spacing: .07em;
       text-decoration: none;
+      text-shadow: 2px 2px 0 #314425, 4px 4px 0 #111918;
     }
 
     nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 22px;
+      gap: 12px 20px;
+      font-size: .8rem;
+      font-weight: bold;
     }
 
     nav a {
-      color: var(--muted);
-      font-size: .95rem;
+      color: #f0d7a4;
       text-decoration: none;
+      text-shadow: 2px 2px 0 #15191a;
     }
 
-    .hero { padding-block: 66px 42px; }
+    nav a:hover { color: #d3eea2; }
+
+    .hero {
+      position: relative;
+      margin-block: 34px 30px;
+      padding: 52px 36px 72px;
+      overflow: hidden;
+      border: 4px solid #18262a;
+      background:
+        linear-gradient(#172c35aa, #172c3533),
+        linear-gradient(135deg, #456a68, #1d3948 70%);
+      box-shadow:
+        inset 0 0 0 4px #57736a,
+        5px 5px 0 #101a1e;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 85px;
+      pointer-events: none;
+      background: #233e30;
+      clip-path: polygon(
+        0 45%, 5% 45%, 5% 20%, 10% 20%,
+        10% 45%, 15% 45%, 15% 65%, 24% 65%,
+        24% 35%, 29% 35%, 29% 10%, 34% 10%,
+        34% 35%, 39% 35%, 39% 70%, 58% 70%,
+        58% 45%, 63% 45%, 63% 20%, 68% 20%,
+        68% 45%, 73% 45%, 73% 65%, 82% 65%,
+        82% 30%, 87% 30%, 87% 5%, 92% 5%,
+        92% 30%, 97% 30%, 97% 55%, 100% 55%,
+        100% 100%, 0 100%
+      );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 18px;
+      background:
+        repeating-linear-gradient(
+          90deg, transparent 0 28px, #1e3523 28px 32px
+        ),
+        linear-gradient(
+          to bottom,
+          #a3bf62 0 4px,
+          #668642 4px 10px,
+          #385334 10px 14px,
+          #322b24 14px
+        );
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
 
     .eyebrow {
-      margin: 0 0 14px;
+      margin: 0 0 15px;
       color: var(--gold);
-      font-size: .78rem;
-      font-weight: 700;
-      letter-spacing: .16em;
+      font-size: .73rem;
+      font-weight: bold;
+      line-height: 1.7;
+      letter-spacing: .1em;
       text-transform: uppercase;
+      text-shadow: 2px 2px 0 #17201c;
     }
 
-    h1, h2, h3 { line-height: 1.2; }
+    h1, h2, h3 { line-height: 1.35; }
 
     h1 {
-      margin: 0 0 20px;
-      font-size: clamp(2.6rem, 7vw, 5rem);
-      letter-spacing: -.045em;
+      max-width: 850px;
+      margin: 0 0 22px;
+      color: #eff4ce;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 900;
+      letter-spacing: -.05em;
+      text-shadow: 3px 3px 0 #35563e, 5px 5px 0 #15252b;
     }
 
     h2 {
       margin: 0;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      letter-spacing: -.025em;
+      color: #e4eebd;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      text-shadow: 2px 2px 0 #17221d;
     }
 
     h3 {
-      margin: 0 0 14px;
-      font-size: 1.15rem;
+      margin: 0 0 16px;
+      color: #ffdf9d;
+      font-size: 1rem;
+      text-shadow: 2px 2px 0 #191b19;
     }
 
     p { margin: 0 0 16px; }
 
     .intro {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 1.15rem;
+      max-width: 730px;
+      color: #f2e8d0;
+      font-size: 1.18rem;
+      text-shadow: 1px 2px 0 #1b3035;
     }
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      align-items: center;
+      gap: 16px;
       margin-top: 26px;
     }
 
     .button {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-      padding: 11px 18px;
-      border: 1px solid var(--line);
-      border-radius: 9px;
-      background: var(--panel-light);
-      color: var(--text);
-      font-size: .95rem;
-      font-weight: 650;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 3px solid #211f1b;
+      background: #76573b;
+      color: #fff0cd;
+      box-shadow:
+        inset 3px 3px 0 #b28c5c,
+        inset -3px -3px 0 #493323,
+        3px 3px 0 #151d1d;
+      font-size: .78rem;
+      font-weight: bold;
+      line-height: 1.6;
+      text-align: center;
       text-decoration: none;
+      text-shadow: 1px 2px 0 #3b2a20;
     }
 
     .button:hover {
-      background: #294239;
-      color: #fff;
+      background: #8b6946;
+      color: #fff7da;
+    }
+
+    .button:active {
+      transform: translate(2px, 2px);
+      box-shadow: inset 2px 2px 0 #493323;
     }
 
     .button.primary {
-      border-color: var(--green);
-      background: var(--green);
-      color: #102018;
+      background: #526f3c;
+      box-shadow:
+        inset 3px 3px 0 #9bb56c,
+        inset -3px -3px 0 #324729,
+        3px 3px 0 #151d1d;
+      color: #f1f7cf;
+      text-shadow: 1px 2px 0 #283c24;
     }
 
-    .button.primary:hover { background: #d1f3d4; }
+    .button.primary:hover { background: #66864a; }
+
+    .notice,
+    .card,
+    .column,
+    .empty {
+      border: 4px solid var(--wood-dark);
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent 0 31px,
+          #ffffff03 31px 32px
+        ),
+        var(--panel);
+      box-shadow:
+        inset 2px 2px 0 #967249,
+        inset -2px -2px 0 #1e211e,
+        3px 3px 0 #101b1d;
+    }
 
     .notice {
-      padding: 16px 20px;
-      border: 1px solid var(--line);
-      border-left: 3px solid var(--gold);
-      border-radius: 9px;
-      background: #17231f;
-      color: var(--muted);
+      padding: 20px 24px;
+      border-color: #695137;
+      color: #f2dfb7;
+      background-color: #3a3327;
     }
 
     section { padding-block: 32px; }
 
-    .section-heading { margin-bottom: 22px; }
+    .section-heading {
+      margin-bottom: 24px;
+      padding: 20px 24px;
+      border-left: 6px solid #a4be69;
+      background: #142b2de8;
+      box-shadow: 3px 3px 0 #101d20;
+    }
 
-    .section-heading p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 780px;
+    .section-heading p:not(.eyebrow) {
+      max-width: 800px;
+      margin: 12px 0 0;
+      color: #e4dfc9;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
-    .card {
-      padding: 26px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-    }
+    .card { padding: 27px; }
 
     .card p, .card li { color: var(--muted); }
 
@@ -208,265 +368,104 @@
 
     .badge {
       display: inline-block;
-      margin-bottom: 18px;
-      padding: 4px 10px;
-      border: 1px solid #6d5e3e;
-      border-radius: 999px;
-      color: var(--gold);
-      font-size: .78rem;
+      margin-bottom: 22px;
+      padding: 6px 10px;
+      border: 2px solid #997a40;
+      background: #26251e;
+      color: #f5d88c;
+      font-size: .68rem;
+      line-height: 1.7;
+      box-shadow: 2px 2px 0 #161b18;
     }
 
     .empty {
-      padding: 24px;
-      border: 1px dashed var(--line);
-      border-radius: 12px;
+      padding: 25px;
       color: var(--muted);
     }
 
     ul, ol {
-      margin: 0 0 16px;
-      padding-left: 22px;
+      margin: 0 0 18px;
+      padding-left: 24px;
     }
 
-    li + li { margin-top: 8px; }
+    li + li { margin-top: 9px; }
+
+    li::marker { color: var(--gold); }
 
     .board {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 16px;
     }
 
     .column {
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: var(--panel);
+      padding: 21px;
+      border-top: 6px solid #75864e;
     }
 
-    .column h3 { font-size: 1rem; }
+    .column h3 { font-size: .87rem; }
 
     .column p {
       margin: 0;
       color: var(--muted);
-      font-size: .9rem;
+      font-size: .95rem;
     }
 
     .small {
       color: var(--muted);
-      font-size: .87rem;
+      font-size: .93rem;
+    }
+
+    code {
+      padding: 2px 5px;
+      background: #1c211e;
+      color: #e9ddab;
+      font-size: .88em;
     }
 
     footer {
       margin-top: 34px;
       padding-block: 28px 40px;
-      border-top: 1px solid var(--line);
+      border-top: 5px solid #536d3f;
+      background: #19231f;
+      box-shadow: 0 -4px 0 #a3b765, 0 -8px 0 #26382c;
       color: var(--muted);
-      font-size: .85rem;
+      font-size: .9rem;
     }
 
     footer p { margin: 0 0 8px; }
 
-    @media (max-width: 800px) {
-      .board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 900px) {
+      .board {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       .wrap { width: calc(100% - 28px); }
-      .hero { padding-top: 42px; }
+      .hero { padding: 34px 22px 65px; }
       .grid, .board { grid-template-columns: 1fr; }
-      .card { padding: 22px; }
+      .card { padding: 23px; }
+      .section-heading { padding: 18px; }
+      nav { gap: 12px 16px; }
+      .button { max-width: 100%; }
+    }
+
+    @media print {
+      body { background: white; color: black; }
+      body::before, body::after,
+      .hero::before, .hero::after { display: none; }
+      header, .hero, .notice, .card, .column,
+      .empty, .section-heading, footer {
+        background: white;
+        color: black;
+        box-shadow: none;
+        border-color: #777;
+      }
+      h1, h2, h3, p, a, .brand, .eyebrow,
+      .card p, .card li, .column p, .small, nav a {
+        color: black;
+        text-shadow: none;
+      }
     }
   </style>
-</head>
-<body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header>
-    <div class="wrap header-inner">
-      <a class="brand" href="#main">EVERWOVEN</a>
-      <nav aria-label="Main navigation">
-        <a href="#playtest">Playtest</a>
-        <a href="#versions">Versions</a>
-        <a href="#development">Development</a>
-        <a href="#feedback">Feedback</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main" class="wrap">
-    <div class="hero">
-      <p class="eyebrow">Private development &amp; playtesting</p>
-      <h1>A world in the making.</h1>
-      <p class="intro">
-        The Everwoven team's home for playable builds, development
-        updates, focused testing, and ideas that help shape the game.
-      </p>
-      <div class="actions">
-        <a class="button primary" href="#playtest">Current playtest</a>
-        <a class="button" href="#feedback">Share feedback</a>
-      </div>
-    </div>
-
-    <div class="notice">
-      This hub is being established. No playtest package has been
-      published here yet. Build availability and testing instructions
-      will appear below when a release is ready.
-    </div>
-
-    <section id="playtest" aria-labelledby="playtest-title">
-      <div class="section-heading">
-        <p class="eyebrow">Download &amp; test</p>
-        <h2 id="playtest-title">Current playtest</h2>
-        <p>
-          Use the recommended release for shared testing.
-          Development work is not automatically a published build.
-        </p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <span class="badge">Awaiting first publication</span>
-          <h3>No recommended build yet</h3>
-          <p>
-            The first release will include a Windows download,
-            version identifier, release notes, known issues,
-            and save-compatibility guidance.
-          </p>
-          <a href="https://github.com/Gborohooo/everwoven-playtest/releases">
-            Open private release archive
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>This week's testing focus</h3>
-          <p>No testing assignment has been published yet.</p>
-          <p>
-            Each release will identify what changed, what needs
-            attention, and how to report useful results.
-          </p>
-          <p class="small">
-            Always include the build version with a report.
-            Do not assume an older build can safely open a newer save.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="versions" aria-labelledby="versions-title">
-      <div class="section-heading">
-        <p class="eyebrow">Changes &amp; fixes</p>
-        <h2 id="versions-title">Version history</h2>
-        <p>
-          Published releases will retain their own notes and package
-          identity so feedback can be traced to the build tested.
-        </p>
-      </div>
-
-      <div class="empty">
-        No releases recorded in this hub yet.
-        The first entry will separate additions, changes, fixes,
-        known issues, and compatibility notes.
-      </div>
-    </section>
-
-    <section id="development" aria-labelledby="development-title">
-      <div class="section-heading">
-        <p class="eyebrow">Progress &amp; direction</p>
-        <h2 id="development-title">Development board</h2>
-        <p>
-          These are workflow categories, not a claim about the game's
-          current implementation. Approved items will be added
-          separately from suggestions.
-        </p>
-      </div>
-
-      <div class="board">
-        <article class="column">
-          <h3>Planned</h3>
-          <p>No approved items published to this board yet.</p>
-        </article>
-        <article class="column">
-          <h3>In development</h3>
-          <p>No active work published to this board yet.</p>
-        </article>
-        <article class="column">
-          <h3>Ready for testing</h3>
-          <p>No testing candidates published to this board yet.</p>
-        </article>
-        <article class="column">
-          <h3>Accepted</h3>
-          <p>No accepted items published to this board yet.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="feedback" aria-labelledby="feedback-title">
-      <div class="section-heading">
-        <p class="eyebrow">Collaborate</p>
-        <h2 id="feedback-title">Help shape Everwoven</h2>
-        <p>
-          Keep bugs, design ideas, and testing results in the private
-          feedback backlog rather than losing them in chat.
-          GitHub access is required separately from this website login.
-        </p>
-      </div>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Report a bug</h3>
-          <p>Start the issue title with <code>[Bug]</code> and include:</p>
-          <ul>
-            <li>The build version you tested.</li>
-            <li>What happened and what you expected.</li>
-            <li>Steps to reproduce it, if known.</li>
-            <li>A screenshot, video, or relevant log excerpt.</li>
-          </ul>
-          <p class="small">
-            Remove personal information from logs.
-            Do not post passwords, access codes, or tokens.
-          </p>
-          <a class="button"
-             href="https://github.com/Gborohooo/everwoven-playtest/issues/new">
-            Write a bug report
-          </a>
-        </article>
-
-        <article class="card">
-          <h3>Suggest a feature</h3>
-          <p>Start the issue title with <code>[Idea]</code> and explain:</p>
-          <ul>
-            <li>The experience or problem you want to improve.</li>
-            <li>Your proposed behavior.</li>
-            <li>Why it would make the game better.</li>
-            <li>Any tradeoffs or alternatives worth considering.</li>
-          </ul>
-          <p class="small">
-            Suggestions are discussion items, not commitments.
-            Approved scope and priorities are decided separately.
-          </p>
-          <a class="button"
-             href="https://github.com/Gborohooo/everwoven-playtest/issues/new">
-            Propose an idea
-          </a>
-        </article>
-      </div>
-
-      <div class="actions">
-        <a href="https://github.com/Gborohooo/everwoven-playtest/issues">
-          Browse the private feedback backlog
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <p>Everwoven · Private playtest hub</p>
-      <p>
-        Pre-release development. Availability, features, and plans
-        may change. No release date is announced here.
-      </p>
-    </div>
-  </footer>
-</body>
-</html>

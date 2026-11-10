@@ -46,6 +46,17 @@ Read the table and the last `RESULT_JSON:` line. `remote_head` is R, the pushed 
 & 'C:\Everwoven\.local\playtest-hub\tools\Publish-LatestBuild.ps1' -Mode Publish
 ```
 
+Run exactly that one command and nothing else in the same call: no `;`, `&&`, pipe, redirection or appended
+`echo "exit=$LASTEXITCODE"`. The task's permission rule matches this exact command form; a compound command
+is judged separately and the first unattended run (2026-11-10) was refused for it ("Create Public Surface").
+Do not read the exit code in the same call. Judge the result from the output (below). If a separate call is
+needed, `$LASTEXITCODE` does not survive between calls, so rely on the `PUBLISHED:` and `RESULT_JSON:` lines.
+Use the same plain single-command form for the `-Mode Check` call in step 2.
+
+If the permission system still refuses this command, stop. Do not retry it in another form, do not use
+`powershell -File`, `Start-Process`, `gh release create`, `cmd` or any other route to the same effect.
+Report the refusal exactly and leave the release for the owner.
+
 Success is the `PUBLISHED:` line plus a `RESULT_JSON:` with `action: published`. The script has already
 re-downloaded the ZIP, compared its SHA-256, published the prerelease and rewritten
 `data/publish-state.json`. If it stops, report the message; do not retry more than once and never

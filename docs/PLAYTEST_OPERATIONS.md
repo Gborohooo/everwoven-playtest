@@ -8,6 +8,8 @@ Site: everwoven-playtest.pages.dev
 
 Owner executes local Windows PowerShell 5.1 scripts.
 No connector or autonomous remote modifications.
+Sole exception: the scheduled daily publication task described under
+"Automated daily publication" below (owner-approved 2026-11-09).
 Never collect credentials, owner saves, or secrets into review output.
 
 ## Implemented
@@ -31,7 +33,8 @@ Do not modify issues or game code merely because a review was requested.
 
 "Add this week's build":
 The first private prerelease was published on 2026-11-04; see the checkpoint below.
-Reusable publication automation is not implemented yet.
+Publication of an already built, pushed-equal package is automated; see
+"Automated daily publication" below. Building a package is not automated.
 Inspect current game docs/PORTABLE_PLAYTEST.md, dependency lock and
 tools/Build-WindowsPlaytest.ps1 before preparing another package.
 Do not rebuild an already accepted package merely to update the website.
@@ -97,3 +100,24 @@ Private GitHub access remains required for downloads and feedback.
 
 The hub's first-release content is being prepared locally in this change.
 Commit/push and Cloudflare deployment require separate returned evidence.
+
+## Automated daily publication (owner-approved 2026-11-09)
+A Claude Code Desktop scheduled task, playtest-site-daily, runs at 06:00 local time in
+C:\Everwoven\.local\playtest-hub. Its prompt holds the authorization limits; the procedure is
+docs/DAILY_PUBLISH_RUNBOOK.md; the mechanics are tools/Publish-LatestBuild.ps1.
+Cloudflare Pages is Git-connected (production branch main, output public, automatic deployments),
+so a push to main of this repository deploys the site.
+
+Approved build rule: a build is published only if its game commit is the pushed GitHub main or an
+ancestor of it, no runtime file differs from the pushed code (recorded git status and commit diff),
+the builder's evidence and the ZIP hash check out, and it is newer than data/publish-state.json.
+Documentation, tests and tools may differ. The owner pushes only completed features, so unpushed work
+cannot be published and cannot appear on the site. Nothing in the game repository is ever written.
+
+Not established by this automation: smoke launch, owner playtest of the exact ZIP, second-computer
+compatibility, file-by-file equality with Git, or a verified live site (the site is behind a login).
+Release recovery: a failed run may leave a draft release; the task never deletes releases or tags.
+Pause the task from the Scheduled page (Status: Paused) or revert the site commit and push.
+
+### Automated publication log
+No automated publication yet. The seed in data/publish-state.json is the 2026-11-04 first release.

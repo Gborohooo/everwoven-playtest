@@ -1,0 +1,16 @@
+{
+    "schema":  1,
+    "seeded_from":  "docs/PLAYTEST_OPERATIONS.md first private release checkpoint, 2026-11-04",
+    "last_published":  {
+                           "build_id":  "Everwoven-Windows-Playtest-20261104_134344_636-fdc5ff23b728-local",
+                           "base_commit":  "fdc5ff23b728092f463c3c26390188391edec9ae",
+                           "zip_sha256":  "2DC30D2C41F339A65BA0A2A3BFD6DBC6637CC0AD7A1E33EABB45562A86544D90",
+                           "exe_sha256":  null,
+                           "release_tag":  "playtest-20261104-134344-fdc5ff23b728",
+                           "release_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261104-134344-fdc5ff23b728",
+                           "download_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261104-134344-fdc5ff23b728/Everwoven-Windows-Playtest-20261104_134344_636-fdc5ff23b728-local.zip",
+                           "built_utc":  null,
+                           "published_utc":  "2026-11-04T19:21:27Z",
+                           "game_main_at_publish":  null
+                       }
+}

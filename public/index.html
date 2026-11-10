@@ -741,8 +741,9 @@
 
     <!-- AUTO:notice:start -->
     <div class="notice">
-      The first Windows playtest is available. Download the package below,
-      extract it completely, and use a new disposable world for testing.
+      A newer Windows playtest is available (2026-11-10), with Crystal Barrens
+      and several other new biomes. Download the package below, extract it
+      completely, and use a new disposable world for testing.
       Private GitHub access is required separately from this website login.
     </div>
     <!-- AUTO:notice:end -->
@@ -760,20 +761,23 @@
       <div class="grid">
         <!-- AUTO:current-build:start -->
         <article class="card">
-          <span class="badge">First Windows playtest &middot; 2026-11-04</span>
+          <span class="badge">Windows playtest &middot; 2026-11-10</span>
           <h3>Windows x86-64 playtest</h3>
           <p>
-            Owner-tested package. Extract the entire ZIP, then run
-            <code>Everwoven.exe</code> from the extracted folder.
-            The development editor is not required.
+            Extract the entire ZIP, then run <code>Everwoven.exe</code> from
+            the extracted folder. The development editor is not required.
           </p>
           <p class="small">
             Build:
-            <code>Everwoven-Windows-Playtest-20261104_134344_636-fdc5ff23b728-local</code>
+            <code>Everwoven-Windows-Playtest-20261110_033248_866-f57e71a4152d-local</code>
+          </p>
+          <p class="small">
+            Game commit <code>f57e71a</code>, identical to the pushed project code.
+            Packaging checks passed; the download was re-verified after upload.
           </p>
           <p>
             <a class="button primary"
-               href="https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261104-134344-fdc5ff23b728/Everwoven-Windows-Playtest-20261104_134344_636-fdc5ff23b728-local.zip">
+               href="https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261110-033248-f57e71a4152d/Everwoven-Windows-Playtest-20261110_033248_866-f57e71a4152d-local.zip">
               Download Windows ZIP
             </a>
           </p>
@@ -781,7 +785,7 @@
             GitHub sign-in and private repository access are required.
             Website login alone does not grant download access.
           </p>
-          <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261104-134344-fdc5ff23b728">
+          <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261110-033248-f57e71a4152d">
             Release notes, package hash &amp; compatibility guidance
           </a>
         </article>
@@ -791,13 +795,18 @@
         <article class="card">
           <h3>This week's testing focus</h3>
           <ol>
-            <li>Create a new disposable world.</li>
-            <li>Check startup, menus, terrain rendering, and movement.</li>
-            <li>Change a HUD preference and quit normally.</li>
-            <li>Restart, confirm the preference survived, and reload the world.</li>
+            <li>Create a new disposable world and travel until you find Crystal Barrens. Look at the gem-coloured, slightly see-through crystals, the very large crystal and the ravines.</li>
+            <li>Find Giantwood Basin. Check the redwood-scale trees, then chop or fell one.</li>
+            <li>Find Frostspike Wastes. Walk among the ice spires, look at how the ice gets thicker with depth, and notice that the ice is slippery.</li>
+            <li>Visit Giant Mushroom Wilds at night. Look at the glow and the coloured mushroom lights, and try the Ambient light sources switch and distance slider in Graphics settings.</li>
+            <li>Check that snow falls in Frostpine Taiga and Glacier Valleys instead of rain.</li>
+            <li>Look at the overall world layout: large continents and regions with distinct biomes.</li>
           </ol>
           <p class="small">
-            These checks passed on the owner's machine.
+            Crystal Barrens, Giantwood Basin, Frostspike Wastes, Giant Mushroom
+            Wilds, Glacier Valleys and the new world layout were each played and
+            accepted on the owner's machine. Snow in Frostpine Taiga has not had
+            an owner playtest recorded yet.
             Testing on another computer is still needed.
             Do not delete, move, or migrate existing saves for this test.
           </p>
@@ -821,6 +830,36 @@
       </div>
 
       <!-- AUTO:versions:start -->
+      <article class="card">
+        <span class="badge">2026-11-10 &middot; Private prerelease</span>
+        <h3>Windows playtest 2026-11-10</h3>
+        <p>
+          Adds six new biomes, a new world layout and snow in colder biomes
+          since the 2026-11-04 package. Packaging and
+          uploaded-download hashes were verified.
+        </p>
+        <ul>
+          <li>New biomes: Volcanic Ashlands, Glacier Valleys, Giant Mushroom Wilds, Frostspike Wastes, Giantwood Basin and Crystal Barrens.</li>
+          <li>World generation now places continents and regions with their own biome mixes.</li>
+          <li>Ice is one shared, slippery block; Frostspike ice is see-through and thickens with depth.</li>
+          <li>Giant Mushroom Wilds glow at night, with new Graphics settings for ambient light sources.</li>
+          <li>Snow now falls in Frostpine Taiga and Glacier Valleys; mountain rivers and river banks were fixed.</li>
+          <li>
+            Release saves use <code>%APPDATA%\Everwoven</code>;
+            development-editor data remains separate.
+            Use a new disposable world. Worlds from earlier packages are not
+            expected to match, and second-computer compatibility is not established.
+          </li>
+        </ul>
+        <p class="small">
+          ZIP SHA256:
+          <code>E1A0EDA1E633FEBEF3CB9C154CAB0615AD3F4DE56E2364A9C8307CEADC67E7F6</code>
+        </p>
+        <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261110-033248-f57e71a4152d">
+          Open this release
+        </a>
+      </article>
+
       <article class="card">
         <span class="badge">2026-11-04 &middot; Private prerelease</span>
         <h3>First Windows playtest</h3>
@@ -887,7 +926,6 @@
         <article class="column">
           <h3>Ready for testing</h3>
           <ul class="small">
-            <li>Volcanic Ashlands</li>
             <li>Snow in Frostpine Taiga</li>
           </ul>
         </article>

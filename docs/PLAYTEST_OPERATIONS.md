@@ -121,3 +121,5 @@ Pause the task from the Scheduled page (Status: Paused) or revert the site commi
 
 ### Automated publication log
 No automated publication yet. The seed in data/publish-state.json is the 2026-11-04 first release.
+
+- 2026-11-10: tag playtest-20261110-033248-f57e71a4152d, build Everwoven-Windows-Playtest-20261110_033248_866-f57e71a4152d-local, game commit f57e71a4152dce05ed3cba9d4e09bdce2b63bf6c, ZIP SHA-256 E1A0EDA1E633FEBEF3CB9C154CAB0615AD3F4DE56E2364A9C8307CEADC67E7F6. Published by the owner-approved publish script from an owner-attended session after the scheduled task's permission checker refused the release step; page text written in the same session.

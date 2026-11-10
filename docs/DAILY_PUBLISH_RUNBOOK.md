@@ -69,11 +69,17 @@ a pair. Never edit CSS, the header, hero, nav, feedback section or footer.
 
 | Region | When to change | Source |
 | --- | --- | --- |
-| `notice` | new release | the release result |
-| `current-build` | new release, or the page does not yet link `release_tag` from `data/publish-state.json` | `RESULT_JSON` of step 3, or the state file |
+| `notice` | new release | the release result or the state file |
+| `current-build` | new release | `RESULT_JSON` of step 3, or the state file |
 | `testing-focus` | new release | see "Testing focus" |
-| `versions` | new release (prepend one entry, keep all older entries unchanged) | `RESULT_JSON` + commits since previous release |
+| `versions` | new release (prepend one entry, keep all older entries unchanged) | `RESULT_JSON` or the state file + commits since previous release |
 | `board` | every run, only if its content would change | see "Development board" |
+
+"New release" means the release_tag in `data/publish-state.json` is not yet linked anywhere on the page,
+whether step 3 created it in this run or an earlier run or the owner published it by hand. Check this
+by searching `public/index.html` for that tag. "No new release today" in the report is true only when the
+tag is already on the page. The previous build's `base_commit` for the version entry comes from the last
+`versions` entry's release or the older release listed in git history of the state file.
 
 If nothing would change, do not touch the file.
 

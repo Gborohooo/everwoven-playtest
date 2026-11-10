@@ -108,6 +108,15 @@ docs/DAILY_PUBLISH_RUNBOOK.md; the mechanics are tools/Publish-LatestBuild.ps1.
 Cloudflare Pages is Git-connected (production branch main, output public, automatic deployments),
 so a push to main of this repository deploys the site.
 
+Two-part flow (owner-approved 2026-11-10): the Claude permission checker refuses release creation inside
+the scheduled task, so the release is created by a Windows Task Scheduler job, "Everwoven Playtest
+Publish", at 05:50 local time (current user, runs only while signed in, runs after a missed start when the
+PC wakes). It runs tools/Publish-Scheduled.ps1, a thin wrapper around tools/Publish-LatestBuild.ps1 -Mode
+Publish with a log under %LOCALAPPDATA%\EverwovenPlaytestHub\logs. It never builds, never edits or commits
+anything, and leaves data/publish-state.json modified after a release. The 06:00 Claude task then writes
+the page text, commits that state file with the page, pushes and checks the deployment. Disable the Windows
+job in Task Scheduler (or run Disable-ScheduledTask -TaskName "Everwoven Playtest Publish") to stop releases.
+
 Approved build rule: a build is published only if its game commit is the pushed GitHub main or an
 ancestor of it, no runtime file differs from the pushed code (recorded git status and commit diff),
 the builder's evidence and the ZIP hash check out, and it is newer than data/publish-state.json.

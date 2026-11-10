@@ -75,11 +75,27 @@ if ($result.Code -ne 0 -and $result.Text -match 'Timed out after' -and $result.T
     Write-Log ('Retry exit code ' + $result.Code)
 }
 
-if ($result.Text -match 'PUBLISHED: (\S+)') {
-    Write-Log ('RELEASE PUBLISHED: ' + $Matches[1])
+# Summarise from the script's final RESULT_JSON line (a plain text match on "published" would also hit
+# the "Last published:" line of the table).
+$summary = $null
+foreach ($line in ($result.Text -split "`r?`n")) {
+    if ($line.StartsWith('RESULT_JSON: ')) {
+        try { $summary = ConvertFrom-Json $line.Substring(13) } catch { $summary = $null }
+    }
 }
-elseif ($result.Text -match 'NOTHING TO PUBLISH') {
-    Write-Log 'Nothing to publish.'
+if ($null -eq $summary) {
+    Write-Log 'RESULT: no RESULT_JSON line found; see the output above.'
+}
+elseif ($summary.action -eq 'published') {
+    Write-Log ('RESULT: RELEASE PUBLISHED ' + $summary.release_url)
+}
+elseif ($summary.action -eq 'none') {
+    Write-Log 'RESULT: nothing to publish (no new qualifying build).'
+}
+else {
+    $reason = ''
+    if ($summary.PSObject.Properties.Name -contains 'reason') { $reason = [string]$summary.reason }
+    Write-Log ('RESULT: ' + $summary.action + ' ' + $reason)
 }
 
 Write-Log 'Scheduled playtest publish finished.'

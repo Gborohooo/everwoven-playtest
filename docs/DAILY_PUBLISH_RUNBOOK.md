@@ -72,14 +72,14 @@ a pair. Never edit CSS, the header, hero, nav, feedback section or footer.
 | `notice` | new release | the release result or the state file |
 | `current-build` | new release | `RESULT_JSON` of step 3, or the state file |
 | `testing-focus` | new release | see "Testing focus" |
-| `versions` | new release (prepend one entry, keep all older entries unchanged) | `RESULT_JSON` or the state file + commits since previous release |
+| `versions` | new release (replace the one entry; the page shows only the newest build, older releases stay on GitHub) | `RESULT_JSON` or the state file + commits since previous release |
 | `board` | every run, only if its content would change | see "Development board" |
 
 "New release" means the release_tag in `data/publish-state.json` is not yet linked anywhere on the page,
 whether step 3 created it in this run or an earlier run or the owner published it by hand. Check this
 by searching `public/index.html` for that tag. "No new release today" in the report is true only when the
-tag is already on the page. The previous build's `base_commit` for the version entry comes from the last
-`versions` entry's release or the older release listed in git history of the state file.
+tag is already on the page. The previous build's `base_commit` for the version entry comes from the git history of the state file
+(`git log -p -- data/publish-state.json`), since the page keeps only the newest build.
 
 If nothing would change, do not touch the file.
 
@@ -130,7 +130,9 @@ Keep the `<article class="card">` with the heading `This week's testing focus`.
 
 #### Version entry (`versions`)
 
-Prepend before the previous entry:
+Owner decision (2026-11-10): the page shows ONLY the newest playtest build. Replace the whole existing entry
+with the new one; never keep or prepend older entries. Describe what is new since the previous published
+build, using the previous `base_commit` from `git log -p -- data/publish-state.json`:
 
 ```html
 <article class="card">

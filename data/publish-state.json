@@ -1,15 +1,15 @@
 {
-  "schema": 1,
-  "last_published": {
-    "build_id": "Everwoven-Windows-Playtest-20261110_033248_866-f57e71a4152d-local",
-    "base_commit": "f57e71a4152dce05ed3cba9d4e09bdce2b63bf6c",
-    "zip_sha256": "E1A0EDA1E633FEBEF3CB9C154CAB0615AD3F4DE56E2364A9C8307CEADC67E7F6",
-    "exe_sha256": "2449D5C91D46D215E9D91A5ADB0E0B5320391755AC9BF11763888D17E47BF27D",
-    "release_tag": "playtest-20261110-033248-f57e71a4152d",
-    "release_url": "https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261110-033248-f57e71a4152d",
-    "download_url": "https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261110-033248-f57e71a4152d/Everwoven-Windows-Playtest-20261110_033248_866-f57e71a4152d-local.zip",
-    "built_utc": "2026-11-10T08:33:05Z",
-    "published_utc": "2026-11-10T14:18:00Z",
-    "game_main_at_publish": "c479b38a8d8d75c96a9ed1677a00466c8126529b"
-  }
+    "schema":  1,
+    "last_published":  {
+                           "build_id":  "Everwoven-Windows-Playtest-20261111_142206_460-2d46c3d0c61a-local",
+                           "base_commit":  "2d46c3d0c61a4d07dbc8f7eacfd53247f5b67033",
+                           "zip_sha256":  "9172DFB1F963043EA2AD54DBD9FDEEAA4CAAC7D0E4D7F870E559623BE1CA839B",
+                           "exe_sha256":  "352470C3251F88DB12E42A7FEA4E081092BA5B38DCBDC7C5C0F355FA7B9C6C59",
+                           "release_tag":  "playtest-20261111-142206-2d46c3d0c61a",
+                           "release_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261111-142206-2d46c3d0c61a",
+                           "download_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261111-142206-2d46c3d0c61a/Everwoven-Windows-Playtest-20261111_142206_460-2d46c3d0c61a-local.zip",
+                           "built_utc":  "2026-11-11T19:22:24.9474461Z",
+                           "published_utc":  "2026-11-11T19:27:24Z",
+                           "game_main_at_publish":  "d34947501aec61108e703ea9c7f9de83ef694742"
+                       }
 }

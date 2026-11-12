@@ -1,15 +1,15 @@
 {
     "schema":  1,
     "last_published":  {
-                           "build_id":  "Everwoven-Windows-Playtest-20261111_142206_460-2d46c3d0c61a-local",
-                           "base_commit":  "2d46c3d0c61a4d07dbc8f7eacfd53247f5b67033",
-                           "zip_sha256":  "9172DFB1F963043EA2AD54DBD9FDEEAA4CAAC7D0E4D7F870E559623BE1CA839B",
-                           "exe_sha256":  "352470C3251F88DB12E42A7FEA4E081092BA5B38DCBDC7C5C0F355FA7B9C6C59",
-                           "release_tag":  "playtest-20261111-142206-2d46c3d0c61a",
-                           "release_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261111-142206-2d46c3d0c61a",
-                           "download_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261111-142206-2d46c3d0c61a/Everwoven-Windows-Playtest-20261111_142206_460-2d46c3d0c61a-local.zip",
-                           "built_utc":  "2026-11-11T19:22:24.9474461Z",
-                           "published_utc":  "2026-11-11T19:27:24Z",
-                           "game_main_at_publish":  "d34947501aec61108e703ea9c7f9de83ef694742"
+                           "build_id":  "Everwoven-Windows-Playtest-20261112_084824_843-fe3b01c2f9da-local",
+                           "base_commit":  "fe3b01c2f9dad1bd4b20f360a377b91d0fadf0f2",
+                           "zip_sha256":  "F98918CF476ADBD6F23F05BDC0C1B5EBEBB28C0256CB1B4816B5342FF93C5A87",
+                           "exe_sha256":  "8F6A16710A5B45A4545709735E3C89804CB949E24AF11B4E816F633FCB9D6EA0",
+                           "release_tag":  "playtest-20261112-084824-fe3b01c2f9da",
+                           "release_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261112-084824-fe3b01c2f9da",
+                           "download_url":  "https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261112-084824-fe3b01c2f9da/Everwoven-Windows-Playtest-20261112_084824_843-fe3b01c2f9da-local.zip",
+                           "built_utc":  "2026-11-12T13:48:45.4742221Z",
+                           "published_utc":  "2026-11-12T13:50:50Z",
+                           "game_main_at_publish":  "fe3b01c2f9dad1bd4b20f360a377b91d0fadf0f2"
                        }
 }

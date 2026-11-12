@@ -741,8 +741,9 @@
 
     <!-- AUTO:notice:start -->
     <div class="notice">
-      A newer Windows playtest is available (2026-11-12), with items, a
-      character inventory, ground drops and gems. Download the package below,
+      A newer Windows playtest is available (2026-11-12), with display
+      options, sharper menus on large screens, a restyled developer menu and
+      rarity beacons over items on the ground. Download the package below,
       extract it completely, and use a new disposable world for testing.
       Private GitHub access is required separately from this website login.
     </div>
@@ -769,15 +770,15 @@
           </p>
           <p class="small">
             Build:
-            <code>Everwoven-Windows-Playtest-20261112_084824_843-fe3b01c2f9da-local</code>
+            <code>Everwoven-Windows-Playtest-20261112_131359_815-3bb698c2b72a-local</code>
           </p>
           <p class="small">
-            Game commit <code>fe3b01c</code>, identical to the pushed project code.
+            Game commit <code>3bb698c</code>, identical to the pushed project code.
             Packaging checks passed; the download was re-verified after upload.
           </p>
           <p>
             <a class="button primary"
-               href="https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261112-084824-fe3b01c2f9da/Everwoven-Windows-Playtest-20261112_084824_843-fe3b01c2f9da-local.zip">
+               href="https://github.com/Gborohooo/everwoven-playtest/releases/download/playtest-20261112-131359-3bb698c2b72a/Everwoven-Windows-Playtest-20261112_131359_815-3bb698c2b72a-local.zip">
               Download Windows ZIP
             </a>
           </p>
@@ -785,7 +786,7 @@
             GitHub sign-in and private repository access are required.
             Website login alone does not grant download access.
           </p>
-          <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261112-084824-fe3b01c2f9da">
+          <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261112-131359-3bb698c2b72a">
             Release notes, package hash &amp; compatibility guidance
           </a>
         </article>
@@ -795,18 +796,18 @@
         <article class="card">
           <h3>This week's testing focus</h3>
           <ol>
-            <li>Create a new character and a new disposable world. Press Tab to open the inventory, move items around the way you would in Minecraft (click, drag, split, drop), and use the number keys and mouse wheel on the hotbar.</li>
-            <li>Fell a tree, mine a rock and pick up what drops. Bigger trees and rocks should give more. Carry a lot and see whether the slowdown and the "too heavy to jump" limit feel right.</li>
-            <li>Find Crystal Barrens and mine the crystal clusters. Each cluster should drop gems of its own colour, bigger clusters should drop more, and the rarest colours (such as ruby and diamond) should show a special name colour.</li>
-            <li>Find Karst Towers and walk among the tall limestone towers and the fig trees on the green plain.</li>
+            <li>Open Options, then Graphics, and try the new Display section: windowed, borderless fullscreen and fullscreen, a few resolutions, and Interface size. Also maximise and restore the window. Menus and the HUD should fill the screen, stay sharp, and the mouse should click exactly where it points.</li>
+            <li>Drop items and mine gems in Crystal Barrens. Items on the ground show a light pillar in their rarity colour (common white, uncommon green, rare blue, epic purple, legendary yellow, mythic orange), with a gentle pulse and a glow that grows with rarity. Options, then HUD, then Item beacons chooses which rarities show one.</li>
+            <li>Pick up several items in a row. Each pickup should be listed at the bottom-left with its icon and a rarity-coloured name, and the oldest lines should fade first. Piles of logs on the ground should no longer flicker when you move.</li>
+            <li>Press F4 for the developer tools: travel to any biome, spawn items from the Items tab, and set the time of day. Double-tap Space to start or stop flying.</li>
             <li>Find Riftlands. Look at the glowing magma in the rifts, the lava lakes and the arch bridges, and report anything odd about how the magma flows.</li>
             <li>Check that snow falls in Frostpine Taiga instead of rain.</li>
           </ol>
           <p class="small">
-            The inventory, ground drops, gems and Karst Towers were each played
-            and accepted on the owner's machine. Riftlands has no owner
-            playtest recorded yet, and snow in Frostpine Taiga has not had an
-            owner playtest recorded yet.
+            The display options, menu and item changes in this build passed on
+            the owner's machine, as did the inventory, ground drops, gems and
+            Karst Towers. Riftlands has no owner playtest recorded yet, and snow
+            in Frostpine Taiga has not had an owner playtest recorded yet.
             Testing on another computer is still needed.
             Do not delete, move, or migrate existing saves for this test.
           </p>
@@ -834,16 +835,17 @@
         <span class="badge">2026-11-12 &middot; Private prerelease</span>
         <h3>Windows playtest 2026-11-12</h3>
         <p>
-          Adds the first items and inventory, with ground drops and gems, and a
-          new biome, Karst Towers, since the 2026-11-11 package. Packaging and
+          Adds display options and sharper scaling for menus and the HUD, a
+          restyled developer menu, and rarity beacons and a pickup list for
+          items, since the earlier 2026-11-12 package. Packaging and
           uploaded-download hashes were verified.
         </p>
         <ul>
-          <li>Inventory: press Tab for a bag, with a separate hotbar. Stacks, dropping and splitting follow Minecraft's controls, and there is a carry limit that slows you down when you are overloaded.</li>
-          <li>Characters: your items belong to a character that travels between your single-player worlds.</li>
-          <li>Drops: felling trees and mining rocks and deadwood leaves items on the ground to pick up; bigger trees and rocks give more.</li>
-          <li>Gems: twelve gems come from Crystal Barrens crystal clusters, each from a cluster of its own colour, with a name colour for how rare it is.</li>
-          <li>New biome: Karst Towers, tall limestone towers on a humid green plain with the Karst Fig.</li>
+          <li>Display: Options, Graphics, Display adds window mode (windowed, borderless fullscreen, fullscreen), resolution and interface size. Menus and the HUD grow in whole steps on large screens so borders and icons stay crisp.</li>
+          <li>Items: six rarity tiers (common, uncommon, rare, epic, legendary, mythic) with their own colours; some gems moved to the new tiers.</li>
+          <li>Items on the ground show a pulsing light pillar and glow in their rarity colour, and piles no longer flicker.</li>
+          <li>Pickups are listed at the bottom-left in order, with rarity-coloured names.</li>
+          <li>Developer tools (F4 only): a cleaner menu with tabs, an item spawner and a faster biome finder. Flying is now a double-tap of Space.</li>
           <li>Item weights, amounts and carry limits are first guesses and may change.</li>
           <li>
             Release saves use <code>%APPDATA%\Everwoven</code>;
@@ -853,10 +855,10 @@
           </li>
         </ul>
         <p class="small">
-          ZIP F98918CF476ADBD6F23F05BDC0C1B5EBEBB28C0256CB1B4816B5342FF93C5A87256:
-          <code>F98918CF476ADBD6F23F05BDC0C1B5EBEBB28C0256CB1B4816B5342FF93C5A87</code>
+          ZIP SHA256:
+          <code>48D40643867CD043EF6A51B354C8D696161599E5F71F282B2930428A0CCB7A1F</code>
         </p>
-        <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261112-084824-fe3b01c2f9da">
+        <a href="https://github.com/Gborohooo/everwoven-playtest/releases/tag/playtest-20261112-131359-3bb698c2b72a">
           Open this release
         </a>
       </article>
@@ -875,7 +877,7 @@
       </div>
 
       <!-- AUTO:board:start -->
-      <p class="small">Updated from the pushed project notes (commit 56b2aa0).</p>
+      <p class="small">Updated from the pushed project notes (commit 3bb698c).</p>
       <div class="board">
         <article class="column">
           <h3>Planned</h3>
@@ -901,12 +903,12 @@
         <article class="column">
           <h3>Accepted</h3>
           <ul class="small">
+            <li>Display options, developer menu and item beacons (2026-11-12)</li>
             <li>Items, inventory and gems (2026-11-12)</li>
             <li>Karst Towers (2026-11-11)</li>
             <li>Glass-scar Expanse (2026-11-11)</li>
             <li>Fjordlands look (2026-11-11)</li>
             <li>Petrified Wildwood (2026-11-10)</li>
-            <li>Crystal Barrens (2026-11-10)</li>
           </ul>
         </article>
       </div>
